@@ -3,7 +3,7 @@ GettingCleaningData_1
 
 Getting and Cleaning Data - Programming Assignment 1
 
-This repository contains an R script used to transform raw data from the Human Activity Recognition Using Smartphones Data Set webpage: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+This repository contains an R script used to transform raw data from the Human Activity Recognition Using Smartphones Data Set webpage: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones [1]
 
 The script run_analysis.R should be placed in your working directory along with the unzipped data set https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip.
 
@@ -14,21 +14,22 @@ The function will look for these files in the working directory:
 - 'features.txt': List of all features. (561 total)
 - 'activity_labels.txt': Links the class labels with their activity name.
 - 'train/X_train.txt': Training set of measured values.
-- 'train/y_train.txt': Training labels.
+- 'train/y_train.txt': Training labels. The Activity ID for each measurement set in X_train.txt.
 - 'train/subject_train.txt': Subject ID which performed the activity involved in Training set.
 - 'test/X_test.txt': Test set of measured values.
-- 'test/y_test.txt': Test labels.
+- 'test/y_test.txt': Test labels. The Activity ID for each measurement set in X_test.txt.
 - 'test/subject_test.txt': Subject ID which performed the activity involved in Test set.
 
-The function will combine the data in X_train and X_test and merge in descriptive labels obtained from the features file. The function will also merge in Activity IDs from the Y_train and Y_test
+The function will combine the data in X_train and X_test and merge in descriptive labels obtained from the features file. The function will also merge in Activity IDs from the y_train and y_test
 files and merge in Subject ID information from the subject_train and subject_test files.
 
-The function will reduce the X_train and X_test data to the following measurements related to mean and standard deviation with values
-representing the mean for each of the measurements below grouped by Subject and Activity. The \Inertial Signals\ data isn't used because it doesn't represent mean or std values.
+The function will reduce the X_train and X_test data to the following measurements related to mean and standard deviation with final output values
+representing the mean of the entire data set  for each of the measurements below grouped by Subject and Activity. 
+
+The \Inertial Signals\ data or Angle() measurements derived from mean values aren't used because they don't represent mean or std values. 
 
 The output file will be created in the working directory as run_analysis.txt in a tidy/wide format.
 
-ActivityID	
 Activity
 SubjectID	
 tBodyAcc-mean()-X	
@@ -112,3 +113,8 @@ fBodyBodyGyroJerkMag-std()
 fBodyBodyGyroJerkMag-meanFreq()
 
 
+[1] Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012
+
+This dataset is distributed AS-IS and no responsibility implied or explicit can be addressed to the authors or their institutions for its use or misuse. Any commercial use is prohibited.
+
+Jorge L. Reyes-Ortiz, Alessandro Ghio, Luca Oneto, Davide Anguita. November 2012.

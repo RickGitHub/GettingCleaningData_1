@@ -1,5 +1,7 @@
 run_analysis <- function(){
 
+        library(reshape2)
+        
         dirRoot<-paste(getwd(),"/",sep="") ## Root directory of data, ex. 
         
         file1<-paste(dirRoot,"activity_labels.txt",sep="")
@@ -63,6 +65,9 @@ run_analysis <- function(){
         
         ## Add Activity description labels
         cast2<-merge(activityLabels,cast1,by.x="ActivityID",by.y="ActivityID")
+        
+        ## Drop the ActivityID column to leave only descriptive Activity for tidy data
+        cast2$ActivityID<-NULL
 
         ## Output wide data to text file in working directory
         write.table(cast2,file="./run_analysis.txt",row.names=FALSE)
