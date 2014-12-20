@@ -94,7 +94,11 @@ The function will combine the data in X_train and X_test and merge in descriptiv
 files and merge in Subject ID information from the subject_train and subject_test files.
 
 The function will reduce the X_train and X_test data to the measurements above related to mean and standard deviation with final output values
-representing the mean of the entire data set  for each of the measurements above grouped by Subject and Activity. 
+representing the mean of the entire data set for each of the measurements above grouped by Subject and Activity. This is accomplished by using a melt()
+function to convert the data set to a long table with the variable column being the feature measurements. The long table is then transformed back into 
+a wide table with columns for each feature using a dcast() function with a "mean" argument passed to it to return the mean from each specific feature.
+
+The ActivityID column is dropped from the final data set because it is redundant information since the Activity column also exists.
 
 The \Inertial Signals\ data or Angle() measurements derived from mean values aren't used because they don't represent mean or std values. 
 
